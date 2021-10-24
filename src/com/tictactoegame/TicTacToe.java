@@ -6,10 +6,21 @@ public class TicTacToe {
 
 	static char[] board = new char[10];
 	static Scanner sc = new Scanner(System.in);
+	static Random random = new Random();
 
 	public static void ticTakToeInitialization() {
 		for (int i = 1; i < board.length; i++) {
 			board[i] = ' ';
+		}
+	}
+
+	private static void tossToPlay() {
+		System.out.println("Tossing To Check who Plays First");
+		int toss = random.nextInt(2);
+		if (toss == 0) {
+			System.out.println("Its Heads Player Plays first");
+		} else {
+			System.out.println("Its Tails Computer Plays first");
 		}
 	}
 
@@ -45,14 +56,15 @@ public class TicTacToe {
 			playerMove();
 		} else {
 			char playerChoice = 0;
-			board[indexNumber] = playerChoice ;
+			board[indexNumber] = playerChoice;
 			showBoard();
 		}
 
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to TicTacToe Game");
+		System.out.println("...Welcome to TicTacToe Game...");
+		tossToPlay() ;
 		ticTakToeInitialization();
 		playerChoose();
 		showBoard();
